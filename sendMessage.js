@@ -26,12 +26,17 @@ function sendMessage(messageToSend)
     
     textBox.innerHTML = messageToSend
 
+    // write message to textbox
     let inputEvent = document.createEvent("UIEvents"); 
     inputEvent.initUIEvent("input", true, true, window, 1); 
     textBox.dispatchEvent(inputEvent); 
 
+    // press the send button
     let sendButton = document.querySelector('span[data-icon="send"]')
     let sendEvent = document.createEvent("MouseEvents"); 
     sendEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null); 
     sendButton.dispatchEvent(sendEvent); 
 }
+
+goToChat("Johnny Appleseed")
+sendMessage("Due to covid19, all TCP applications are being converted to UDP to avoid handshakes.")
